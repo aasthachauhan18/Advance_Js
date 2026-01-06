@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        // console.log(a);
+        // var a = 10;
+        // // undefined
+
+        // console.log(b);
+        // let b = 20;
+        // // output: ReferenceError: Cannot access 'b' before initialization
+
+        // if (true) {
+        // let x = 5;
+        // }
+        // console.log(x);
+        // // output:ReferenceError: x is not defined
+
+        // function test() {
+        // var y = 10;
+        // }
+        // test();
+        // console.log(y);
+        // // output:ReferenceError: y is not defined
+
+        // let a = 1;
+        // function foo() {
+        // console.log(a);
+        // }
+        // foo();
+        // // output: 1
+
+        // let x = 10;
+        // function test() {
+        // let x = 20;
+        // console.log(x);
+        // }
+        // test();
+        // console.log(x);
+
+        // // output: 20
+        // // 10
+
+        // sayHi();
+
+        // function sayHi() {
+        // console.log("Hi");
+        // }
+        // // output:Hi
+
+        // sayHello();
+
+        // var sayHello = function () {
+        // console.log("Hello");
+        // };
+
+        // // output: TypeError: sayHello is not a function
+
+        // {
+        // console.log(a);
+        // let a = 10;
+        // }
+        // output: ReferenceError: Cannot access 'a' before initialization
+
+        function outer() {
+        let count = 0;
+        return function () {
+            count++;
+            return count;
+        };
+        }
+
+        const fn = outer();
+        console.log(fn());
+        console.log(fn());
+
+        // output: 1
+        // 2
+
+
+    //     function makeFn() {
+    //     let x = 1;
+    //     return function () {
+    //         return x++;
+    //     };
+    //     }
+
+    //     const a = makeFn();
+    //     const b = makeFn();
+
+    //     console.log(a());
+    //     console.log(b());
+
+    // //   output: 1
+    // //   1
+
+    // function test() {
+    // x = 100;
+    // }
+    // test();
+    // console.log(x);
+
+    // output: 100
+
+    // if (true) {
+    // var a = 10;
+    // }
+    // console.log(a)
+
+    // output: 10
+
+    let a = 5;
+    function test() {
+    console.log(a);
+    let a = 10;
+    }
+    test()
+
+    // output: ReferenceError: Cannot access 'a' before initialization
+
+    function test() {
+    console.log(x);
+    }
+    test();
+    // output: x is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    </body>
+</html>
