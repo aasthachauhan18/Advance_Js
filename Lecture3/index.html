@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture3</title>
+</head>
+<body>
+    <script>
+        // 1️ Fix Global this Misuse
+        // const obj = { name: "Aastha" };
+
+        // function show() {
+        // console.log(this.name);
+        // }
+
+        // show.call(obj); 
+
+        // 2️ Preserve this in Object Method
+
+        // const user = {
+        // name: "Aastha",
+        // greet() {
+        //     setTimeout(() => {
+        //     console.log(this.name);
+        //     }, 1000);
+        // }
+        // };
+
+        // user.greet(); 
+
+        // 3️ Fix Method Extraction Bug
+        // const user = {
+        // name: "Aastha",
+        // getName() {
+        //     return this.name;
+        // }
+        // };
+
+        // const fn = user.getName.bind(user);
+        // console.log(fn()); 
+
+
+        // 4️ Correct Event Handler this
+        // button.addEventListener("click", function () {
+        // console.log(this); 
+        // });
+
+        // 5️ Fix Nested Function Context
+        // const user = {
+        //     name: "Aastha",
+        //     greet() {
+        //         const inner = () => {
+        //         console.log(this.name);
+        //         };
+        //         inner();
+        //     }
+        //     };
+
+        //     user.greet(); 
+
+        // 6️ Convert to bind() Usage
+        // const obj = { name: "Aastha" };
+
+        // setTimeout(function () {
+        // console.log(this.name);
+        // }.bind(obj), 1000);
+
+        // 7️ Fix Constructor Misuse
+        // function User(name) {
+        // this.name = name;
+        // }
+
+        // const u = new User("Aastha");
+        // console.log(u.name); 
+
+        // 8️ Choose Correct Function Type
+
+        // Normal functions should be used for object methods.
+
+        // 9️ Fix Callback Context Loss
+
+        // setTimeout(user.getName.bind(user), 1000);
+
+        // 10 Refactor Using call()
+
+        // function greet(city) {
+        // console.log(this.name, city);
+        // }
+
+        // const user = { name: "Aastha" };
+
+        // greet.call(user, "Maldives"); 
+
+        // 11 Refactor Using apply()
+        // greet.apply(user, ["Mumbai"]);
+
+        // 1️2️ Permanent Context Fix
+        // const greetUser = greet.bind(user);
+        // greetUser("Goa"); 
+
+        // 1️3️ Identify Context Bug
+        // const obj = {
+        // name: "Jay",
+        // arrow: () => console.log(this.name)
+        // };
+        // Arrow functions don’t have their own this inherit from global scope.
+
+        // 1️4️ Fix Arrow Misuse
+        // const obj = {
+        // name: "Jay",
+        // show() {
+        //     console.log(this.name);
+        // }
+        // };
+
+        // obj.show(); 
+
+        // 1️5️ Best Practice Decision
+        // setTimeout(() => user.getName(), 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
