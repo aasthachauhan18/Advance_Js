@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture4</title>
+</head>
+<body>
+    <script>
+        // 1️ Replace String Concatenation Bug
+        let name = "Aastha";
+        let count = 3;
+        const msg = `Hello ${name} You have a ${count} message`;
+        console.log(msg);
+
+        // 2️ Fix Dynamic Value Injection
+
+        let price = 500;
+        console.log(`Price is ${price} after discount`);
+
+        // 3️ Convert to Multiline String
+
+        const text = `Hello
+        How are You
+        Welcome`;
+        console.log(text);
+
+        // 4️ Generate Dynamic HTML Markup
+        const title = '<h1>Hello</h1>';
+        console.log(title);
+
+        // 5️ Embed Conditional Logic
+        let marks = 90;
+        const result = `Result: ${marks>80 ? "Pass" :"Fail"}`
+        console.log(result);
+
+        // 6️ Fix Currency Formatting
+
+        let amount = 100;
+        let total = `Total amount is Rs: ${amount}`
+        console.log(total);
+
+        // 7️ Debug Log Improvement
+        let age  = 18;
+        console.log(`User age is : ${age}`);
+
+        // 8️ Function Result Injection
+        function Square(a) {
+            return a*a;
+        }
+        console.log(`Square is : ${Square(2)}`);
+
+        // 9️ Fix Email Template Readability
+        const mail = `
+        Hello User
+        Welcome to our app
+        Thank you`;
+        console.log(mail);
+
+        // 10 Remove Hardcoded Values
+        let day = "Monday";
+        console.log(`Today is ${day}`);
+
+        // 1️1️ Cleaner Object Message
+        let user = {
+            name:"abc",
+            city:"Delhi"
+        }
+        console.log(`${user.name} lives in ${user.city}`);
+
+        // 1️2️ Fix Calculation Display
+        let tax = 1000;
+        console.log(`Calculated Tax ${tax}`);
+
+        // 1️3️ Avoid Escaping Quotes
+
+        const quote = `He said \"JavaScript is awesome\"`;
+        console.log(quote);
+        
+        
+        // 1️4️ Template Literal Refactor Decision
+        let person = "abc";
+        console.log(`Hello ${person}!`);
+
+
+        // Tamplate Literals should be preferred over string concatenation in modern JavaScript
+        
+
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
