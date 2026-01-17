@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture-6</title>
+</head>
+<body>
+    <script>
+// 1️ Remove Duplicate Values Using Set
+
+
+const ids = [1, 2, 2, 3, 4, 4];
+const unique = [...new Set(ids)];
+console.log(unique); // [1, 2, 3, 4]
+
+
+
+// 2️ Convert Object Data to Map
+
+
+const user = { name: "Jay", age: 25 };
+
+const userMap = new Map(Object.entries(user));
+console.log(userMap);
+
+
+
+// 3️ Fix Key Collision Bug
+
+
+const obj = {};
+obj[{}] = "data";
+const map = new Map();
+map.set({}, "data");
+
+
+
+// 4️ Track Unique Object References
+
+const ws = new WeakSet();
+const obj = {};
+ws.add(obj);
+
+
+
+// 5️ Cache Data Without Memory Leak
+
+const cache = new WeakMap();
+cache.set(domElement, userData);
+
+
+
+// 6️ Identify Memory-Safe Collection
+
+
+//  WeakMap and WeakSet
+
+
+// 7️ Transform Array Data Using map()
+
+const prices = [100, 200, 300];
+const withTax = prices.map(p => p * 1.1);
+
+
+// 8️ Filter Valid Records
+
+
+const users = [{ age: 16 }, { age: 21 }];
+
+const adults = users.filter(u => u.age > 18);
+
+
+
+// 9️ Aggregate Data Using reduce()
+
+
+const cart = [100, 200, 300];
+const total = cart.reduce((sum, val) => sum + val, 0);
+
+
+
+// 10 Replace Loop with map()
+
+
+// const result = [];
+// for (let i = 0; i < nums.length; i++) {
+//   result.push(nums[i] * 2);
+// }
+
+// const result = nums.map(n => n * 2);
+
+
+
+
+
+// 11 Replace Loop with filter()
+
+// const clean = [];
+// for (let v of values) {
+//   if (v) clean.push(v);
+// }
+
+// const clean = values.filter(Boolean);
+
+
+// 12️ Replace Loop with reduce()
+
+const items = ["a", "b", "a"];
+
+const freq = items.reduce((acc, item) => {
+  acc[item] = (acc[item] || 0) + 1;
+  return acc;
+}, {});
+
+
+// 13️ Choose Correct Collection
+
+
+//  Map
+
+
+// 14️ Identify Invalid WeakMap Usage
+
+
+const wm = new WeakMap();
+wm.set("key", "value");
+
+
+// 15️ Best Practice Decision
+
+//  map()
+    </script>
+</body>
+</html>
