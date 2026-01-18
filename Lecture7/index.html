@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture7</title>
+    </head>
+    <body>
+        <script>
+        // 1️ Fix Array Copy Bug
+        const copy = [1,2,3,4]
+        const updated = [...copy,5];
+        console.log(updated)
+
+        // 2️ Merge Arrays Safely
+        const arr1 = [1,2,3]
+        const arr2 = [4,5,6]
+        const merged = [...arr1,...arr2]
+        console.log(merged)
+
+        // 3️ Collect Function Arguments
+        function sum(...num) {
+            const su = num.reduce((a,b) => a+b,0);
+            console.log(su)
+            
+        }
+        sum(1,2,3,4,5);
+
+        // 4️ Fix Object Mutation
+
+        const user = {
+            name:"abc",
+            age:20
+        };
+        const userUpdate = {
+            ...user,
+            age:25
+        };
+        console.log(userUpdate)
+
+        // 5️ Extract Object Properties
+        const user1 = { name: "Jay", age: 25 };
+       const {name,age} = user1
+       console.log(name)
+       console.log(age)
+
+    //    6️ Rename During Destructuring
+    const{name:userName} = user1;
+    console.log(userName)
+
+    // 7️ Set Default Values
+    const {role = "IT"} = user1
+    console.log(role)
+
+    // 8️ Destructure Array Values
+    const arr = [10, 20, 30];
+    // const [a,b] = arr
+    // console.log(a)
+    // console.log(b)
+
+    // 9️ Skip Unwanted Values
+    const [ ,secound] = arr;
+    console.log(secound)
+
+    // 10 Swap Variables Cleanly
+    let a = 10;
+    let b = 20;
+    [a,b] = [b,a]
+    console.log(a)
+    console.log(b)
+
+    // 11 Nested Object Destructuring
+
+    const user3 = { address: { city: "Delhi" } };
+    const {address:{city}} = user3;
+    console.log(city)
+
+    // 12️ Destructure Function Parameters
+    function greet({name,age}) {
+        console.log(`Hello ${name}, You are ${age} years`)
+    }
+    greet({name:"aastha",age:20});
+
+    // 13️ Collect Remaining Properties
+
+    const user4 = { id: 1, name: "Jay", age: 25 };
+    const {id , ...rest} = user4
+    console.log(id)
+    console.log(rest)
+
+    // 14️ Choose Correct Operator
+    // Ans : Rest Operator
+
+
+    // 15️ Best Practice Decision
+    // Ans: Spread Operator
+
+
+
+        </script>
+    </body>
+</html>
