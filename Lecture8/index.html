@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture8</title>
+</head>
+<body>
+    <!-- <button id="btn">Click Me</button> -->
+    <script>
+        // 1️ Prevent Runtime Error on Deep Property Access
+        // const users = {
+        //     address:null
+        // }
+        // console.log(user?.address?.city);
+
+        // 2️ Safe Method Invocation
+
+        // console.log(user?.logout?.())
+
+        // 3️ Provide Default Value for null
+        // const settings = null
+        // const theme = settings.theme ?? "light";
+        // console.log(theme)
+
+        // 4️ Safe Array Index Access //Doubt
+
+        // console.log(users?.[0]?.name);
+
+        // 5️ Defensive API Response Handling
+        // const res = ""
+        // const title = res?.data?.post?.title;
+        // console.log(title)
+
+        // 6️ Identify Safer Operator
+        // Ans : Nullish Coalescing Operator
+
+        // 7️ Safe Function Parameter Access
+
+//             function greet(user) {
+//         console.log(user?.name);
+// }
+// greet();
+
+// 8️ Defensive Object Access in Loop   //Doubt
+// const users = null
+// users.forEach(u => console.log(u?.name));
+
+// // 9️ Replace Verbose Guard Checks
+// const config = {
+//     settings:null
+// }
+// const mode = config?.settings?.mode;
+// console.log(mode)
+
+// 10 Safe DOM Access
+function fn() {
+    console.log("clicked")
+}
+
+document.querySelector("#btn")?.addEventListener("click", fn);
+
+
+// 11 Combine ?. and ??
+const user ={
+    permissions:{
+        check(){
+
+        }
+    },
+    profile:{
+        role:null
+    }
+}
+const role = user?.profile?.role ?? "IT";
+console.log(role)
+
+
+// 12️ Identify Defensive Programming Goal
+// Ans : Prevent runtime errors and unexpected crashes by safely handling invalid, missing, or unexpected data.
+
+// 13️ Fix Boolean Override Bug
+const isAdmin = user.isAdmin ?? true;
+console.log(isAdmin)
+
+
+// 14️ Safe Nested Function Call
+
+const check = user?.permissions?.check();
+console.log(check)
+
+
+// 15️ Best Practice Decision
+// Ans : Optional Chaining (?.)
+//  Nullish Coalescing (??)
+
+
+
+
+    </script>
+</body>
+</html>
