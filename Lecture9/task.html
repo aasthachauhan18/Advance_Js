@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+    //    1 Persist Login Status
+
+
+
+
+const isLoggedIn = true;
+
+localStorage.setItem("isLoggedIn", isLoggedIn);
+
+// 2️ Read Boolean Value Correctly
+
+const status = localStorage.getItem("isLoggedIn") === "true";
+
+console.log(status); 
+
+// 3️ Store User Preferences Object
+
+const prefs = { lang: "en", theme: "dark" };
+
+localStorage.setItem("prefs", JSON.stringify(prefs));
+
+// 4️ Safely Read Preferences
+
+// const prefs =
+//   JSON.parse(localStorage.getItem("prefs")) || { lang: "en", theme: "light" };
+
+// console.log(prefs);
+
+// 5️ Temporary OTP Storage
+
+sessionStorage.setItem("otp", "123456");
+
+// 6️ Identify Wrong Storage Choice
+
+//  Answer
+
+//  localStorage persists forever
+//  OTP is sensitive data
+//  Security risk
+
+sessionStorage.setItem("otp", "123456");
+
+// 7️ Remove User Data on Logout
+
+localStorage.removeItem("isLoggedIn");
+localStorage.removeItem("prefs");
+localStorage.removeItem("cart");
+sessionStorage.clear();
+
+
+// 8️ Update Single Stored Field
+
+// const prefs = JSON.parse(localStorage.getItem("prefs")) || {};
+// prefs.theme = "light";
+
+localStorage.setItem("prefs", JSON.stringify(prefs));
+
+// 9️ Check Storage Support
+if (typeof Storage !== "undefined") {
+  console.log("localStorage supported");
+} else {
+  console.log("Storage not supported");
+}
+
+// 10 Store Array of Items
+
+// const cart = [1, 2, 3];
+
+// localStorage.setItem("cart", JSON.stringify(cart));
+
+// 1️1️ Retrieve Stored Array
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+console.log(cart); // [1, 2, 3]
+
+// 1️2️ Avoid Null Crash
+// const data = JSON.parse(localStorage.getItem("data") || "null");
+
+// console.log(data);
+
+
+
+// 1️3️ Session vs Local Decision
+
+// Ans : localStorage
+
+// 1️4️ Count Stored Keys
+console.log(localStorage.length);
+
+// 1️5️ Best Practice Decision
+
+//  Answer
+
+// Serialize objects using JSON.stringify()
+    </script>
+</body>
+
+</html>
