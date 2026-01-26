@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture11</title>
+    </head>
+    <body>
+        <button id="btn">Click Me!</button>
+        <script>
+        // Task 1: Simple Callback Execution
+
+        // function processData(name,msg) {
+        //     console.log(`Helllo ${name}`);
+        //     msg();
+            
+        // }
+        // function greet() {
+        //     console.log("How Are You?");
+            
+        // }
+        // processData("Aastha",greet);
+
+
+        // Task 2: Callback vs Normal Function Call
+
+        //CallBack Function
+
+        // function processData(name,msg) {
+        //     console.log(`Helllo ${name}`);
+        //     msg();
+            
+        // }
+        // function greet() {
+        //     console.log("How Are You?");
+            
+        // }
+        // console.log("Start");
+        
+        // processData("Aastha",greet);
+        // console.log("End");
+        
+
+
+        //Normal Function
+
+        // function processData() {
+        //     console.log("Hello,How Are you?");
+            
+        // }
+        // console.log("Start");
+        // processData();
+        // console.log("End");
+
+
+        // Task 3: Timer-Based Callback
+
+        // console.log("Hello");
+        // setTimeout(() => {
+        //     console.log("How Are You?");
+            
+        // },2000);
+        // console.log("Bye");
+
+
+        // Task 4: Countdown Timer
+
+        // let count = 5;
+        // let time = setInterval(() => {
+        //     console.log(count);
+        //     count--;
+
+        //     if (count<0) {
+        //         console.log("Count Finished");
+        //         clearInterval(time)
+        //     }
+            
+        // },2000)
+
+        // Task 5: Event Callback (Button Click)
+        
+        // const button = document.getElementById("btn");
+        // button.addEventListener('click',function () {
+        //     console.log("Button Clicked");
+            
+        // })
+        
+        // Task 6: Callback as Configuration
+        function calculate(a,b,operationCallback) {
+            return operationCallback(a,b)
+        }
+
+        function add(x,y) {
+            return x+y
+        }
+        function mul(x,y) {
+            return x*y
+        }
+        console.log(calculate(5,4,add));
+        console.log(calculate(5,4,mul));
+        
+            
+        
+        
+        
+    </script>
+    </body>
+</html>
