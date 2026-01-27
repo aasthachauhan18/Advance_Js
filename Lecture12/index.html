@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture12</title>
-</head>
-<body>
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture12</title>
+    </head>
+    <body>
+        <script>
         // Task 1: Create Your First Promise
 
         // const fatch = new Promise((resolve,reject) =>{
@@ -103,12 +103,55 @@
 
         // Task 6: Promise Chaining
         
+      function getUser() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({id:1,name:"abc"});
+                
+            },1000);
+        });
+      }
+
+      function getOrders(userId) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(["oder1","oder2"])
+            },1000);
+        });
+
+      }
+
+      function processOrder(oders) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+
+                resolve(`Processed ${oders.length}  orders`);
+            },1000)
+        });
+      }
+
+      getUser()
+      .then(user => getOrders(user.id))
+      .then(order => processOrder(order))
+      .then(result => console.log(result))
+      .catch(error => console.error(error))
 
 
 
+    //   Task 8: Multiple Fetch Requests
 
+    //  getUser().then(users => console.log(users))
+    //  getOrders().then(order => console.log(order))
+    //  processOrder().then(count => console.log(count))
+
+
+    //  Task 9: Promise.all() Usage
+      Promise.all([getUser(),getOrders(),processOrder()])
+      .then(result => console.log(result))
+      .catch(error => console.error(error)
+      )
         
         
     </script>
-</body>
+    </body>
 </html>
