@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture13</title>
+    </head>
+    <body>
+        <div id="loader" style="display: none;">Loading....</div>
+        <div id="content"></div>
+        <script>
+        // Task 1: Convert Promise to Async/Await
+
+        // 
+
+
+
+        // Task 2: First Async Function
+        // async function Hello() {
+        //     console.log("Hello");
+            
+        // }
+        // Hello().then(console.log())
+
+
+        // Task 3: Sequential Await
+
+        // async function first() {
+        //     return new Promise((resolve) => {
+        //         resolve("Return First Function")
+        //     });
+        // }
+
+        // async function secound() {
+        //     return new Promise((resolve) => {
+        //         resolve("Return Second Function")
+        //     });
+        // }
+
+        // async function Final() {
+        //     const f1 = await first()
+        //     console.log(f1);
+
+        //     const f2 = await secound();
+        //     console.log(f2);
+            
+            
+        // }
+
+        // Final();
+
+        // Task 4: Async with setTimeout
+
+        // async function first() {
+        //     console.log("First Function Started");
+        //     return new Promise((resolve) => {
+        //     setTimeout(() => {
+        //             resolve("First function Completed")
+        //         },1000);
+        //     })
+        // }
+
+        // async function secound() {
+        //     console.log("Secound Function Started");
+        //     return new Promise((resolve) => {
+        //     setTimeout(() => {
+        //             resolve("Secound Function Completed")
+        //         },1000)
+        //     })
+        // }
+
+        // async function Final() {
+        //     console.log("Final Function Started");
+        //     const f1 = await first()
+        //     console.log(f1);
+            
+        //     const f2 = await secound()
+        //     console.log(f2);
+
+        //     console.log("Final Function Completed");
+            
+            
+        // }
+
+        // Final();
+
+        // Task 5: Fetch Data Using Async/Await
+        // async function First() {
+        //     const data = await fetch("https://jsonplaceholder.typicode.com/users");
+        //     const user =  await data.json();
+        //     console.log(user);
+            
+        // }
+        // First();
+
+
+        // Task 6: JSON Parsing
+
+        // async function fetchData() {
+        //     const data = await fetch("https://jsonplaceholder.typicode.com/users");
+        //     console.log("Data Received");
+
+        //     const res = await data.json();
+        //     console.log("Json Pareced");
+
+        //     console.log(res);
+            
+            
+            
+        // }
+        // fetchData();
+
+
+        // Task 7: Error Handling with try/catch
+
+        // async function fetchData() {
+        //     try {
+        //         const data = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        //     const res = await data.json();
+
+        //     console.log(res);
+                
+        //     } catch (error) {
+        //         console.error(error);
+                
+                
+        //     }
+        // }
+
+        // fetchData();
+
+        // Task 8: Parallel API Calls
+        // async function fetchData() {
+            
+        //         const [users,orders] = await Promise.all([
+        //          fetch("https://fakestoreapi.com/products").then(r => r.json()),
+        //          fetch("https://jsonplaceholder.typicode.com/users").then(r => r.json())
+        //     ]);
+            
+        //    console.log(users.orders);
+           
+           
+        // }
+        // fetchData();
+
+        // Task 9: Optional API Handling
+
+
+        // Task 10: Async Function Reusability
+        // async function fetchData(url) {
+        //     try {
+        //         const data = await fetch(url);
+        //         if (!data.ok) {
+        //             console.error("Failed");
+                    
+        //         }
+        //         const res  = await data.json();
+        //         console.log(res);
+                
+        //     } catch (error) {
+        //         console.log(`Error ${error.message}`);
+                
+        //     }
+        // }
+
+        // async function loadData() {
+           
+        //         const user = await fetchData("https://jsonplaceholder.typicode.com/users");
+        //         const product = await fetchData("https://fakestoreapi.com/products");
+
+                
+        //         if (user) {
+        //             console.log(user);
+                    
+        //         }
+
+        //         if (product) {
+        //             console.log(product);
+                    
+        //         }
+        // }
+        // loadData();
+
+
+        // Task 11: Async vs Promise Chaining
+
+
+        // fetch("https://fakestoreapi.com/products")
+
+
+
+        // Task 12: Conditional Async Logic
+
+        // async function loadUser() {
+        //     const userData = await fetch("https://jsonplaceholder.typicode.com/users");
+        //     const users = await userData.json()
+        //     console.log(users);
+            
+        // }
+
+        // async function loadProducts() {
+        //     const productData = await fetch("https://fakestoreapi.com/products");
+        //     const products = await productData.json()
+        //     console.log(products);
+            
+        // }
+
+        // async function load(role) {
+        //     if (role === "user") {
+        //         return await loadUser();
+        //     }
+        //     return await loadProducts();
+        // }
+
+        // load("products").then(console.log());
+
+
+        // Task 13: Handling API Timeouts
+
+
+        // Task 14: UI Loader Simulation
+
+        let loader = document.getElementById("loader");
+        let content = document.getElementById("content");
+
+        async function fetchData() {
+            loader.style.display = "block";
+
+            try {
+                const res = await fetch("https://jsonplaceholder.typicode.com/users");
+                const data = await res.json();
+                content.innerHTML = JSON.stringify(data);
+            } catch (error) {
+                content.innerHTML = "Failed";
+            }
+
+            loader.style.display = "none";
+        }
+
+        fetchData();
+        
+    </script>
+    </body>
+</html>
