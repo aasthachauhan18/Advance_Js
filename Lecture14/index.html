@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture14</title>
+</head>
+<body>
+    <script>
+        //  Task 1 — Execution Order Prediction
+        //Output
+        // Start
+        // End
+        // Promise
+        // Timer
+
+        // why
+        // Call Stack runs synchronous code first -> Start, End
+
+        // Microtask Queue (Promises) runs next -> Promise
+
+        // Macrotask Queue (setTimeout) runs last -> Timer
+
+        // Task 2 — UI Freeze Investigation
+
+        // Root Cause
+
+        // Long synchronous loop blocks the main thread
+
+        // Event loop never gets control -> UI freezes
+
+        // Why async can’t interrupt
+
+        // JS is single-threaded
+
+        // Async only defers execution — it cannot preempt running code
+
+        // Fixes
+        //  Break work into chunks
+        //  Use Web Workers
+        //  Move computation server-side
+
+        // Task 3 — Timer Drift Detection
+// 
+        // Why email is late
+
+        // setTimeout guarantees minimum delay, not exact timing
+
+        // CPU-heavy loop blocks the event loop
+
+        // Edge Case — CPU spikes
+
+        // High CPU = delayed macrotask execution
+
+        // Drift increases under load
+
+
+        // Task 4 — Callback Queue Mapping
+
+        // Flow
+
+        // Image upload -> I/O (macrotask)
+
+        // Payment API -> Promise (microtask)
+
+        // Fraud check -> Promise (microtask)
+
+        // Rule
+
+        // Microtasks always execute before macrotasks
+
+        // Edge Case
+        //  If fraud check resolves first and stack is empty, it executes first
+
+
+        // Task 5 — Promise Chain Behavior
+
+        // Output
+        // A
+        // B
+        // C
+        
+        // Why
+
+        // Promise .then() -> microtasks
+
+        // All microtasks drain before macrotasks (setTimeout)
+
+        // Task 6 — Async forEach Bug
+
+        // Bug
+
+        // forEach does not await async callbacks
+
+        // Execution order is uncontrolled
+
+        // for (const t of transactions) {
+        // await processTransaction(t);
+        // }
+
+        // Edge Case
+        // Parallel execution is fine for independent tasks
+
+
+        // Task 7 — Push Notification Storm
+
+        // Risks
+
+        // Event loop lag
+
+        // Memory pressure
+
+        // Provider throttling
+
+        // Solution
+
+        // Batch sends 
+
+        // Retry failures only
+
+        // Edge Case
+        //  Use Promise.allSettled() to avoid total failure
+
+
+        // Task 8 — API Waterfall Optimization
+
+        // Problem
+
+        // Sequential awaits = cumulative latency
+
+        
+        // Fix
+        // await Promise.all([profile, orders, recommendations]);
+
+
+        // Edge Case
+
+        // Wrap recommendations with fallback logic
+
+        // Task 9 — Race Condition in Checkout
+
+        // Failure
+
+        // Async ≠ safe concurrency
+
+        // Correct Solutions
+        //  DB atomic updates
+        //  Locks / queues
+        //  Transactions
+
+        //  Not solved by async/await alone
+
+        // Task 10 — Measuring Event Loop Lag
+
+        // Interpretation
+
+        // <20ms -> healthy
+
+        // 20–100ms -> warning
+
+        // >100ms -> blocking likely
+
+        // Edge Case
+
+        // Analytics scripts often cause hidden CPU spikes
+
+
+        // Task 11 — Microtask Starvation
+
+        // Problem
+
+        // Infinite microtasks prevent rendering
+
+        // Why
+
+        // Browser paints between macrotasks, not microtasks
+
+        // Fix
+
+        // Periodically yield using setTimeout
+
+
+        // Task 13 — Worker Thread Decision
+        // Why workers
+
+        // 8,000 × 140ms CPU = catastrophic blocking
+
+        // Workers keep main thread responsive
+
+        // Task 14 — Retry Storm
+
+        // Failure
+        // Immediate retries amplify outages
+
+        // Fix
+        //  Exponential backoff
+        // Jitter 
+
+        // Edge Case
+
+        // Prevent synchronized retries across servers
+
+        // Task 15 — Stream vs Buffer
+        // Problem
+
+        // Buffering 3GB crashes server
+
+        // Fix
+        //  Streams
+        //  Backpressure handling
+
+        // Task 16 — Flash Sale Traffic Spike
+
+        // Correct Strategies
+        // Message queues
+        //  Rate limiting
+        //  Circuit breakers
+        //  Caching
+    </script>
+
+</body>
+</html>

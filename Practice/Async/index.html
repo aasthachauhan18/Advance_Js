@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await</title>
+</head>
+<body>
+    <script>
+        // Task:
+        // Create an async function that returns "Hello Async" and print it.
+        // async function Hello() {
+        //     return "Hello world";
+            
+        // }
+
+        // Hello().then(result => console.log(result))
+
+        // Create a Promise that resolves "Data Loaded" after 1 second.
+        // Use await to get the value.
+        // function fetchData() {
+        //     return new Promise((resolve,reject) => {
+        //         setTimeout(() => {
+        //             console.log("Data Loaded");
+                    
+        //         },1000);
+        //     })
+        // }
+        // async function getData() {
+        //     const data = await fetchData();
+        //     console.log(data);
+            
+        // }
+        // getData();
+
+
+        // Predict the output order.
+        // console.log("A");
+        // async function Predict() {
+        //     console.log("B");
+        //     await Promise.resolve();
+        //     console.log("c");
+            
+            
+        // }
+        // Predict();
+        // console.log("D");
+
+
+        // Create a Promise that randomly resolves or rejects.
+        // Handle error using async/await.
+
+        // function fetchData() {
+        //     return new Promise((resolve,reject) => {
+        //         const success = Math.random() >= 0.5;
+        //         success ? resolve("Success"): reject("Failed");
+        //     })
+        // }
+
+        // async function getData() {
+        //     try {
+        //         const data = await fetchData();
+        //         console.log(data);
+                
+        //     } catch (error) {
+        //         console.error("Error",error);
+                
+        //     }
+        // }
+        // getData();
+
+        //         async function test() {
+        // await Promise.reject("Oops");
+        // }
+
+        // test(); 
+
+        // Run 3 async tasks one after another.
+
+        function fetchData(msg,delay) {
+            return new Promise((resolve,reject) =>{
+                setTimeout(() => resolve(msg),delay)
+            });
+        }
+
+        async function getData() {
+            const a = await fetchData("Task1",1000);
+            const b= await fetchData("Task2",1000);
+            const c = await fetchData("Task3",1000);
+            console.log(a,b,c);
+
+            // const result = await Promise.all([
+            //     fetchData("Task1",1000),
+            //     fetchData("Task2",1000),
+            //     fetchData("Task3",1000)
+            // ]);
+            // console.log(result);
+            
+        }
+
+        getData();
+        
+    </script>
+</body>
+</html>
