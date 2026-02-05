@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj = {};
+        // obj.toString();
+
+        // function user(name,role) {
+        //     this.name = name
+        //     this.role = role
+        // }
+        // user.prototype.getname = function () {
+        //     return this.role
+        // }
+
+        // const user1 = new user("abc","IT")
+        // console.log(user1.getname());
+
+
+       class User{
+        constructor(name,role){
+            this.name=name,
+            this.role=role
+        }
+        getname(){
+            return this.name
+        }
+        
+       }
+       const u1 = new User("abc","IT")
+       console.log(u1.getname());
+
+       User.prototype.getname === u1.__proto__.
+       
+    </script>
+</body>
+</html>
