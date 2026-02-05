@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture16</title>
+</head>
+<body>
+    <script>
+        // Task 1: Basic Closure
+    //     function outer() {
+    //         let count = 0;
+    //         function inner() {
+    //             count++
+    //             console.log(count);
+                
+    //         }
+    //         return inner
+    //     }
+    //    const counter = outer()
+    //    counter()
+    //    counter()
+
+    // Task 2: Access Parent Variable
+
+    // function parent() {
+    //     let msg = "hello world";
+
+    //     function child() {
+    //         console.log(msg);
+            
+    //     }
+        
+    //     return child
+    // }
+
+    // const message = parent()
+    // message()
+
+        //Task 3: Multiple Calls, Same Closure
+
+    //     function outer() {
+    //         let count = 0;
+    //         function inner() {
+    //             count++
+    //             console.log(count);
+                
+    //         }
+    //         return inner
+    //     }
+    //    const counter = outer()
+    //    counter()
+    //    counter()
+    //    counter()
+
+    //    Task 4: Independent Closures
+
+//     function createCounter() {
+//   let count = 0;
+
+//   return function () {
+//     count++;
+//     console.log(count);
+//   };
+// }
+
+// const counterA = createCounter();
+// const counterB = createCounter();
+
+// counterA(); 
+// counterA(); 
+
+// counterB(); 
+// counterB(); 
+
+
+// Task 5: Lexical Scope vs Global Scope
+// let globalVar = "Global Scope";
+
+// function outer() {
+//   let localVar = "lexical scope";
+
+//   return function inner() {
+//     console.log(globalVar); 
+//     console.log(localVar); 
+//   };
+// }
+
+// const fn = outer();
+// fn();
+
+
+
+// Task 6: Private Variable
+
+// function createEmployee() {
+//   let salary = 30000; 
+
+//   return {
+//     getSalary() {
+//       return salary;
+//     },
+//     setSalary(newSalary) {
+//       if (newSalary > 0) {
+//         salary = newSalary;
+//       } else {
+//         console.log("Invalid salary");
+//       }
+//     }
+//   };
+// }
+
+// const emp = createEmployee();
+
+// console.log(emp.getSalary()); 
+
+// emp.setSalary(10000);
+// console.log(emp.getSalary());
+// emp.salary = 500000; 
+// console.log(emp.getSalary()); 
+
+
+    // Task 7: Closure in Loop (Bug Detection)
+
+    // for (var i = 1; i <= 3; i++) {
+    //     setTimeout(() =>{
+    //         console.log(i);
+            
+    //     },1000)
+        
+        
+    // }
+
+    // Task 8: Fix Loop Closure Issue
+    // for (let i = 1; i <= 3; i++) {
+    //     setTimeout(() =>{
+    //         console.log(i);
+            
+    //     },1000)
+        
+        
+    // }
+
+    // Task 9: Function Factory
+
+//     function createMultiplier(factor) {
+//         return function (number) {
+//             return number * factor
+//         }
+//     }
+
+//     const double = createMultiplier(2);
+//     const triple = createMultiplier(3)
+
+//    console.log(double(10));
+   
+//     console.log(triple(10));
+
+
+// Task 10: Configuration Function
+
+
+// Task 11: Closure with setTimeout
+
+// function delayedMessage(message, delay) {
+//   setTimeout(function () {
+//     console.log(message);
+//   }, delay);
+// }
+
+// delayedMessage("Hello", 2000);
+
+// Task 12: Closure with setInterval (Timer)
+// function Timer(limit) {
+//   let count = 0;
+
+//   const interval = setInterval(() => {
+//     console.log(count);
+//     count++;
+
+//     if (count > limit) {
+//       clearInterval(interval);
+//       console.log("Timer stopped");
+//     }
+//   }, 1000);
+// }
+
+// Timer(5);
+
+// Task 13: Memoization (Performance Optimization)
+
+// Task 14: Event Handler Closure
+
+// function createClickHandler() {
+//   let count = 0;
+
+//   return function () {
+//     count++;
+//     console.log(`Button clicked ${count} times`);
+//   };
+// }
+
+// const handleClick = createClickHandler();
+
+
+// handleClick();
+// handleClick();
+// handleClick();
+
+// Task 15: Memory Retention Check
+    
+    </script>
+</body>
+</html>
