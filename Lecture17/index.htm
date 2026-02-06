@@ -15,10 +15,225 @@
                 
             }
         }
-        const dog = {
+        const dog = {}
+        dog.__proto__ = animal
+        dog.eat();
+
+
+        // Q-2: Property Lookup via Prototype Chain
+        const vehicle = {
+            wheel:3
+        }
+        const bike = {}
+        bike.__proto__ = vehicle
+        console.log(bike.wheel);
+        
+        // Q-3: Manual proto Linking
+
+        const parent = {
+            surname:"abc"
+        }
+        const child = {}
+        child.__proto__ = parent
+        console.log(child.surname);
+
+        // Q-4: Constructor Function Prototype
+        function User(name) {
+            this.name = name
 
         }
+        User.prototype.login = function(){
+            console.log(`${this.name} Logged In`);
+            
+        }
+
+        const user1 = new User("abc");
+        const user2 = new User("xyz")
+        user1.login()
+        user2.login()
+
+
+        // Q-5: ES6 Class Prototype Behavior
+        // class Person {
+        //     greet(){
+        //         console.log("Hello, Nice to meet you!");
+                
+        //     }
+        // }
+
+        // const p1 = new Person()
+        // const p2 = new Person()
+        // p1.greet()
+        // p2.greet()
+
+        // Q-6: Prototype Method Sharing Check
+
+    //     class Person {
+    //         greet(){
+    //             console.log("Hello, Nice to meet you!");
+                
+    //         }
+    //     }
+
+    //     const p1 = new Person()
+    //     const p2 = new Person()
+    //     p1.greet()
+    //     p2.greet()
+    //    console.log( p1.greet === p2.greet);
+
+
+    //    Q-7: Object.create with Shared Methods
+
+    const accouuntProto = {
+        balance:100000,
+        getBalance(){
+            return this.balance
+
+        }
+    }
+
+    const acc1 = Object.create(accouuntProto);
+    const acc2 = Object.create(accouuntProto)
+    console.log(acc1.getBalance());
+    console.log(acc2.getBalance());
+    
+    // Q-8: Overriding Prototype Properties
+
+    const user = {
+        role:"User"
+    }
+    const admin = {}
+    admin.__proto__ = user
+    console.log(admin.role);
+    
+
+    // Q-9: Prototype Chain Validation
+
+    class Car {
+        drive(){
+            console.log("Driving...");
+            
+        }
+    }
+
+    const car1 = new Car()
+    car1.drive()
+
+    console.log(car1.__proto__===Car.prototype);
+
+
+    // Q-10: Dynamic Prototype Extension
+
+    class Employee{
+       constructor(name){
+        this.name = name
+       }
+
+    }   
+       Employee.prototype.work = function(){
+            console.log(`${this.name} is working`);
+            
+       }
+
+       const e1 = new Employee("abc")
+       e1.work()
+       
+    
+    //    Q-11: Parent–Child Class Inheritance
+    class Person{
+        introduce(){
+            console.log("Hello");
+            
+        }
+    }
+    class Teacher extends Person{}
+    const T1 = new Teacher()
+    T1.introduce()
+    
+    // Q-12: Method Overriding in Prototype Chain
+    class Payment{
+        pay(){
+            console.log("Paying...");
+            
+        }
+    }
+
+    class CreditCardPayment extends Payment{
+        pay(){
+            console.log("Pay using Creadit card");
+            
+        }
+    }
+    const c1 = new CreditCardPayment()
+    c1.pay()
+    
+    // Q-13: Prototype Chain Traversal
+
+    class GrandParent{
+        call(){
+            console.log("Calling");
+            
+        }
+    }
+
+    class Parent extends GrandParent{}
+    class Child extends Parent{}
+    const C1 = new Child()
+    C1.call()
         
+    // Q-14: Avoid Method Duplication
+
+    // function username(name) {
+    //     this.name = name
+
+    //     this.login=function(){
+    //         console.log(`${this.name} Logged In`);
+            
+    //     }
+    // }
+
+    // let u1 = new username("abc")
+    // let u2 = new username("xyz")
+    // console.log(u1.login===u2.login);
+    
+    // u1.login()
+    // u2.login()
+
+    // Q-15: Legacy Prototype to ES6 Migration
+
+    // function username(name) {
+    //     this.name = name
+    // }
+
+    // username.prototype.login = function(){
+    //     console.log(`${this.name} Logged In`);
+        
+    // }
+
+    // let u1 = new username("abc")
+    // let u2 = new username("xyz")
+    // console.log(u1.login===u2.login);
+    
+    // u1.login()
+    // u2.login()
+
+
+    class username{
+        constructor(name){
+            this.name = name
+        }
+
+        login(){
+            console.log(`${this.name} Logged In`);
+        }
+    }
+    let u1 = new username("abc")
+    let u2 = new username("xyz")
+    console.log(u1.login===u2.login);
+    
+    u1.login()
+    u2.login()
+
     </script>
 </body>
 </html>
