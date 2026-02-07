@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lecture18</title>
+    </head>
+    <body>
+        <script>
+        // Task 1: Basic Parent–Child Inheritance
+        // class Animal{
+        //     eat(){
+        //         console.log("Eating....");
+                
+        //     }
+        // }
+        // class Dog extends Animal{
+        //     bark(){
+        //         console.log("barking....");
+                
+        //     }
+        // }
+
+        // const dog1 = new Dog()
+        // dog1.eat();
+        // dog1.bark();
+
+
+        // Task 2: Using super() in Constructor
+        // class Person{
+        //     constructor(name,age){
+        //         this.name=name;
+        //         this.age=age;
+        //     }
+
+        // }
+        // class Student extends Person{
+        //     constructor(name,age,rollNumber){
+        //         super(name,age);
+        //         this.rollNumber=rollNumber;
+        //     }
+        //     getdata(){
+        //         console.log(`Name :${this.name},Age: ${this.age},RollNumber: ${this.rollNumber}`);
+                
+        //     }
+        // }
+        // const stu1 = new Student("abc",20,1)
+        // stu1.getdata()
+
+
+        // Task 3: Inherited Method Access
+
+        class vehicle{
+            start(){
+                console.log("Vehicle Start..");
+                
+            }
+        }
+        class Car extends vehicle{}
+
+        const car1 = new Car()
+        car1.start()
+
+
+        // Task 4: Method Overriding
+        class Shape{
+            getArea(){
+                console.log("Area of the shape");
+                
+            }
+        }
+
+        class Rectangle{
+            getArea(a,b){
+                console.log(`Area of the Rectangle : ${a*b}`);
+                
+            }
+        }
+        const rec1 = new Rectangle()
+        rec1.getArea(10,20)
+
+
+        // Task 5: Understanding Prototype Chain
+
+         class Animal{
+            eat(){
+                console.log("Eating....");
+                
+            }
+        }
+        class Dog extends Animal{
+            bark(){
+                console.log("barking....");
+                
+            }
+        }
+
+        const dog1 = new Dog()
+        // dog1.eat();
+        // dog1.bark();
+        console.log(Object.getPrototypeOf(dog1));
+        console.log(Object.getPrototypeOf(Object.getPrototypeOf(dog1)));
+
+        console.log(Object.getPrototypeOf(Animal.prototype));
+        console.log(Object.getPrototypeOf(Object.prototype));
+
+
+        // Task 6: Prevent Beginner Mistakes
+
+        //  class Person{
+        //     constructor(name,age){
+        //         this.name=name;
+        //         this.age=age;
+        //     }
+
+        // }
+        // class Student extends Person{
+        //     constructor(name,age,rollNumber){
+        //         this.rollNumber=rollNumber;
+        //     }
+        //     getdata(){
+        //         console.log(`Name :${this.name},Age: ${this.age},RollNumber: ${this.rollNumber}`);
+                
+        //     }
+        // }
+        // const stu1 = new Student("abc",20,1)
+        // stu1.getdata()
+
+
+
+         class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+
+        }
+        class Student extends Person{
+            constructor(name,age,rollNumber){
+                super(name,age);
+                this.rollNumber=rollNumber;
+            }
+            getdata(){
+                console.log(`Name :${this.name},Age: ${this.age},RollNumber: ${this.rollNumber}`);
+                
+            }
+        }
+        const stu1 = new Student("abc",20,1)
+        stu1.getdata()
+
+
+        // Why this error occurs
+        
+        // The parent constructor (Person) must run first
+
+        // JavaScript does NOT create this automatically in child classes
+
+        // super():
+
+        // calls the parent constructor
+
+        // creates & initializes this
+                
+        
+        
+        
+        // Task 7: Base Utility Class
+        class Logger{
+            log(message){
+                 const time = new Date().toLocaleTimeString();
+        console.log(`[${time}] ${message}`);
+            }
+        }
+
+
+        class UserService extends Logger{
+            createUser(username){
+                this.log(`User Created : ${username}`)
+            }
+        }
+
+        class ProductService extends Logger{
+            addProduct(productName){
+                this.log(`Product added : ${productName}`)
+            }
+        }
+
+        const user1 = new UserService()
+        user1.createUser("abc");
+        const product1 = new ProductService()
+        product1.addProduct("Laptop")
+
+
+        // Task 8: Abstract-Like Base Class
+
+        class Payment{
+            process(){
+                throw new Error("Process must not be completed");
+                
+            }
+        }
+
+        class CardPayment extends Payment{
+            process(){
+                console.log("Process by the Card");
+                
+            }
+        }
+        class UPIPayment extends Payment{
+            process(){
+                console.log("Process by the UPI");
+                
+            }
+        }
+
+        const card1 = new CardPayment()
+        card1.process()
+
+
+        // Task 9: Module-Based Inheritance
+
+
+
+        // Task 10: Override with super
+
+class Employee{
+    getSalary(){
+        return 10000;
+    }
+}
+class Manager extends Employee{
+    getSalary(){
+       return super.getSalary()+5000;
+    }
+}
+const manager  = new Manager()
+console.log(manager.getSalary());
+
+// Task 11: Shared Authentication Logic
+class User{
+    login(){
+        console.log("User Logged In");
+        
+    }
+}
+
+class Admin extends User{}
+class Customer extends User{}
+
+
+const admin = new Admin()
+admin.login()
+const customer = new Customer
+customer.login()
+
+// Task 12: UI Component Base Class
+class Component{
+    render(){
+        console.log("Rendering....");
+        
+    }
+}
+
+
+class Button extends Component{
+    render(){
+        console.log("Button Rendering...");
+        
+    }
+}
+
+class Model extends Component{
+    render(){
+        console.log("Model Rendering...");
+        
+    }
+}
+
+const button  = new Button()
+button.render()
+const model = new Model()
+model.render()
+
+    </script>
+    </body>
+</html>
