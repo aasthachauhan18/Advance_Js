@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture19</title>
+</head>
+<body>
+    <script>
+        // Task 1: Identify Iterables
+
+// const arr = [1, 2, 3];
+// const str = "Hello";
+// const obj = { a: 1, b: 2 };
+
+// console.log(typeof arr[Symbol.iterator]); 
+// console.log(typeof str[Symbol.iterator]);
+// console.log(obj[Symbol.iterator]);   
+
+
+// Task 2: Manual Iterator Usage
+
+// const arr = [10, 20, 30];
+
+// const iterator = arr[Symbol.iterator]();
+
+// console.log(iterator.next()); 
+// console.log(iterator.next()); 
+// console.log(iterator.next()); 
+// console.log(iterator.next()); 
+
+
+// Task 3: Custom Basic Iterable (1 → 5)
+
+// const numbers = {
+//   [Symbol.iterator]() {
+//     let current = 1;
+//     return {
+//       next() {
+//         if (current <= 5) {
+//           return { value: current++, done: false };
+//         }
+//         return { done: true };
+//       }
+//     };
+//   }
+// };
+
+// for (const num of numbers) {
+//   console.log(num);
+// }
+
+
+// Task 4: Understand done Flag
+
+const numbers = {
+  [Symbol.iterator]() {
+    let current = 1;
+    return {
+      next() {
+        const result =
+          current <= 5
+            ? { value: current++, done: false }
+            : { value: undefined, done: true };
+
+        console.log(result);
+        return result;
+      }
+    };
+  }
+};
+
+for (const n of numbers) {}
+
+// Task 5: Iterator Exhaustion
+
+const arr = [1, 2];
+const iterator = arr[Symbol.iterator]();
+
+console.log(iterator.next()); 
+console.log(iterator.next());
+console.log(iterator.next()); 
+console.log(iterator.next()); 
+
+
+// Task 6: Beginner Debugging (Make Object Iterable)
+
+const obj = {
+  a: 1,
+  b: 2,
+  [Symbol.iterator]() {
+    const values = Object.values(this);
+    let index = 0;
+
+    return {
+      next() {
+        if (index < values.length) {
+          return { value: values[index++], done: false };
+        }
+        return { done: true };
+      }
+    };
+  }
+};
+
+for (const v of obj) {
+  console.log(v);
+}
+
+
+// Task 7: Range Iterable (Reusable)
+
+function range(start, end) {
+  return {
+    [Symbol.iterator]() {
+      let current = start;
+      return {
+        next() {
+          if (current <= end) {
+            return { value: current++, done: false };
+          }
+          return { done: true };
+        }
+      };
+    }
+  };
+}
+
+console.log([...range(1, 5)]); 
+
+// Task 8: Generator-Based Range
+
+function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield i;
+  }
+}
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
